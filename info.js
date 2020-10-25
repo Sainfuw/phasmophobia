@@ -1,5 +1,5 @@
 const tests = ["EMF nivel 5", "Tempemperatura bajo cero", "Spiritbox", "Escritura Fantasma", "Orbes", "Huellas Dactilares"]
-const ghosts = ["Ente", "Banshee", "Jinn", "Revenant", "Sombra", "Oni", "Espectro", "Pesadilla", "Demon", "Yurei", "Polstergeist", "Espiritu"]
+const ghosts = ["Ente", "Banshee", "Jinn", "Revenant", "Sombra", "Oni", "Espectro", "Pesadilla", "Demonio", "Yurei", "Polstergeist", "Espiritu"]
 const values = [ 
   [1,1,0,0,1,0],
   [1,1,0,0,0,1],
@@ -15,17 +15,19 @@ const values = [
   [0,0,1,1,0,1]
 ]
 
-document.querySelector('#calculate').addEventListener('click', (e) => {
-  e.preventDefault()
-  const elements = document.getElementById("myForm").elements
-  let arr = [] 
-  for (let i = 0; i < elements.length - 1; i++) {
-    let item = elements[i]
-    arr.push(item.checked ? 1 : 0)
-  }
-  // console.log(arr)
-  checkTests(arr, ghosts, values)
-})
+const checkboxes = document.querySelectorAll('input[type=checkbox]')
+for(var i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener('change', function(){
+      const elements = document.getElementById("myForm").elements
+      let arr = [] 
+      for (let i = 0; i < elements.length; i++) {
+        let item = elements[i]
+        arr.push(item.checked ? 1 : 0)
+      }
+      // console.log(arr)
+      checkTests(arr, ghosts, values)
+    })
+}
 
 const checkTests = (arr, ghosts, values) => {
   let tempG = [...ghosts]
@@ -106,11 +108,11 @@ const compareArrays = (arr, val) => {
 
 document.querySelector('#clearForm').addEventListener('click', (e) => {
   e.preventDefault()
-  const elements = document.getElementById("myForm").elements
-  for (let i = 0; i < elements.length - 2; i++) {
+  document.querySelector('#phasmo').innerHTML = ''
+  const elements = document.querySelectorAll('input[type=checkbox]')
+  for (let i = 0; i < elements.length - 1; i++) {
     if (elements[i].checked) {
       elements[i].checked = false
     }
   }
-  const result = document.querySelector('#phasmo').innerHTML = ''
 })
