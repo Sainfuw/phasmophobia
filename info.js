@@ -15,7 +15,7 @@ const values = [
   [0,0,1,1,0,1]
 ]
 
-const calculate = document.addEventListener("submit", e => {
+document.querySelector('#calculate').addEventListener('click', (e) => {
   e.preventDefault()
   const elements = document.getElementById("myForm").elements
   let arr = [] 
@@ -25,7 +25,7 @@ const calculate = document.addEventListener("submit", e => {
   }
   // console.log(arr)
   checkTests(arr, ghosts, values)
-}) 
+})
 
 const checkTests = (arr, ghosts, values) => {
   let tempG = [...ghosts]
@@ -103,3 +103,14 @@ const compareArrays = (arr, val) => {
   })
   return idxs
 }
+
+document.querySelector('#clearForm').addEventListener('click', (e) => {
+  e.preventDefault()
+  const elements = document.getElementById("myForm").elements
+  for (let i = 0; i < elements.length - 2; i++) {
+    if (elements[i].checked) {
+      elements[i].checked = false
+    }
+  }
+  const result = document.querySelector('#phasmo').innerHTML = ''
+})
