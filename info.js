@@ -110,7 +110,7 @@ document.querySelector('#clearForm').addEventListener('click', (e) => {
   e.preventDefault()
   document.querySelector('#phasmo').innerHTML = ''
   const elements = document.querySelectorAll('input[type=checkbox]')
-  for (let i = 0; i < elements.length - 1; i++) {
+  for (let i = 0; i < elements.length; i++) {
     if (elements[i].checked) {
       elements[i].checked = false
     }
