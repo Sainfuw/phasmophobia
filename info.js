@@ -1,4 +1,4 @@
-const tests = ["EMF nivel 5", "Tempemperatura bajo cero", "Spiritbox", "Escritura Fantasma", "Orbes", "Huellas Dactilares"]
+const tests = ["EMF nivel 5", "Temperatura bajo cero", "Spiritbox", "Escritura Fantasma", "Orbes", "Huellas Dactilares"]
 const ghosts = ["Ente", "Banshee", "Jinn", "Revenant", "Sombra", "Oni", "Espectro", "Pesadilla", "Demonio", "Yurei", "Polstergeist", "Espiritu"]
 const values = [ 
   [1,1,0,0,1,0],
